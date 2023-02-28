@@ -1,0 +1,46 @@
+:root {
+  // colors
+  --color-background: linear-gradient(to right, #fbca03, #b97d10);
+  --color-main: #aa0505;
+  --color-secondary: #b97d10;
+  --color-text: #fff;
+
+  // fonts
+  --font-primary: "Source Code Pro", monospace;
+  --font-secondary: "Rubik Vinyl", cursive;
+
+  // shadow
+  --shadow-box: 1rem 1rem 2rem 0px rgba(0, 0, 0, 0.5);
+  --shadow-stable: 2px 1px 2px #fff;
+  --shadow-carousel: 1px 0px 1px #fff;
+}
+
+// responsive breakpoint
+$bp-medium: 37.5em; ///////////// 600px
+$bp-small: 25em; ///////////// 400px
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-background);
+  min-height: 100vh;
+}

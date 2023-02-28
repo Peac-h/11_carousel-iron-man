@@ -1,0 +1,128 @@
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 95vh;
+}
+
+.box {
+  width: 45rem;
+  height: 40rem;
+
+  perspective: 150rem;
+  position: relative;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  &__side {
+    width: 45rem;
+    height: 40rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1.5s ease;
+    backface-visibility: hidden;
+    box-shadow: var(--shadow-box);
+    background: var(--color-main);
+
+    &--front {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .stable-part {
+        width: 50%;
+        text-align: end;
+
+        @media only screen and (max-width: $bp-small) {
+          text-align: start;
+          width: 70%;
+        }
+      }
+
+      .carousel-part {
+        width: 50%;
+        height: 5rem;
+        overflow: hidden;
+
+        @media only screen and (max-width: $bp-small) {
+          width: 70%;
+        }
+
+        .words {
+          padding-left: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          animation: carousel 8s ease-in-out infinite;
+          @media only screen and (max-width: $bp-small) {
+            padding-left: 0;
+          }
+          .word {
+            font-family: var(--font-secondary);
+            height: 5rem;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      .avenger {
+        font-family: var(--font-secondary);
+        width: 45rem;
+        height: 40rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 2.1rem;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes carousel {
+  0%,
+  20% {
+    transform: translateY(0);
+  }
+  25%,
+  45% {
+    transform: translateY(-5rem);
+  }
+  50%,
+  70% {
+    transform: translateY(-10rem);
+  }
+  75%,
+  95% {
+    transform: translateY(-15rem);
+  }
+  100% {
+    transform: translateY(-20rem);
+  }
+}
